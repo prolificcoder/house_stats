@@ -1,16 +1,12 @@
 # house_stats
 
-A new Flutter project.
+Cross device app for visualizing and entering live house scores. 
 
-## Getting Started
+Apps should be available on Android, iOS, Web and macos/windows -> Should be the biggest draw. 
 
-This project is a starting point for a Flutter application.
+## House
+A abrtrary set made of students that compete against other houses (eg: Harry porter houses) 
 
-A few resources to get you started if this is your first Flutter project:
+## Target audience
+Target audience are small teaching institutions like Music, Piano, Chess who have more than 15 students and want to find a way to keep practise fun and motivational 
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
