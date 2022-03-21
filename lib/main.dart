@@ -39,10 +39,10 @@ class _HouseLeaderboardState extends State<HouseLeaderboard> {
         child: GridView.count(
           crossAxisCount: 2,
           children: const <Widget>[
-            Card(child: Text('Dragon')),
-            Card(child: Text('Dragon')),
-            Card(child: Text('Dragon')),
-            Card(child: Text('Dragon')),
+            Card(child: Text('Dragons')),
+            Card(child: Text('Unicorns')),
+            Card(child: Text('Wizards')),
+            Card(child: Text('Divas')),
           ],
         ),
       ),
