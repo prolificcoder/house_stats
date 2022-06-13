@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:house_stats/api/house_api.dart';
+import 'package:house_stats/data/api/house_api.dart';
 import 'package:house_stats/data/house_model.dart';
 import 'package:house_stats/domain/house_repository.dart';
 import 'package:http/http.dart' as http;
