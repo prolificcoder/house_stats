@@ -40,8 +40,8 @@ class HttpHouseRepository implements HouseRepository {
         throw Exception(response.body.toString());
       case 500:
       default:
-        throw Exception('Error occured while communication with server' +
-            ' with status code : ${response.statusCode}');
+        throw Exception(
+            'Error occured while communication with server with status code : ${response.statusCode}');
     }
   }
 }

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:house_stats/api/api_response.dart';
+import 'package:house_stats/api/async_data.dart';
 import 'package:house_stats/data/house_view_model.dart';
 import 'package:provider/provider.dart';
 
@@ -29,12 +29,11 @@ class _HouseLeaderboardState extends State<HouseDashboardScreen> {
 }
 
 Widget _updateHouseScreen(BuildContext context, HouseViewModel model) {
-  switch (model.apiResponse.status) {
+  switch (model.asyncDataStatus.status) {
     case Status.loading:
-    case Status.initial:
       return const CircularProgressIndicator();
     case Status.error:
-      return ErrorWidget(model.apiResponse.data);
+      return ErrorWidget(model.asyncDataStatus.data);
     case Status.loaded:
       return GridView.builder(
         gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
