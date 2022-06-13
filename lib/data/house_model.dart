@@ -5,11 +5,13 @@ import 'package:collection/collection.dart';
 class House {
   String? houseName;
   int? score;
+  int? position = 0; //Custom property
 
-  House({this.houseName, this.score});
+  House({this.houseName, this.score, this.position});
 
   @override
-  String toString() => 'House(houseName: $houseName, score: $score)';
+  String toString() =>
+      'House(houseName: $houseName, score: $score, position: $position)';
 
   factory House.fromMap(Map<String, dynamic> data) => House(
         houseName: data['house-name'] as String?,

@@ -35,6 +35,7 @@ Widget _updateHouseScreen(BuildContext context, HouseViewModel model) {
     case Status.error:
       return ErrorWidget(model.asyncDataStatus.data);
     case Status.loaded:
+      model.sortHousesByPosition(model.houses);
       return Padding(
         padding: const EdgeInsets.all(8.0),
         child: GridView.builder(
@@ -56,6 +57,10 @@ Widget _updateHouseScreen(BuildContext context, HouseViewModel model) {
                     Text(
                       model.houses[index].score.toString(),
                       style: Theme.of(context).textTheme.headlineSmall,
+                    ),
+                    Text(
+                      'place: ' + model.houses[index].position.toString(),
+                      style: Theme.of(context).textTheme.bodyText1,
                     ),
                   ]),
               decoration: BoxDecoration(
