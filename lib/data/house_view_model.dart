@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:house_stats/api/async_data.dart';
+import 'package:house_stats/utils/async_data.dart';
 import 'package:house_stats/data/house_model.dart';
 import 'package:house_stats/domain/house_repository.dart';
 

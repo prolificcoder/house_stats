@@ -5,6 +5,7 @@ import 'package:http/http.dart' as http;
 
 abstract class HouseRepository {
   factory HouseRepository() {
+    //We can additional repositories as our app expands
     return HttpHouseRepository(api: HouseAPI(), client: http.Client());
   }
   Future<List<House>> fetchAllHouses();
