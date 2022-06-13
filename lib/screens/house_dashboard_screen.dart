@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:house_stats/api/api_response.dart';
 import 'package:house_stats/data/house_view_model.dart';
 import 'package:provider/provider.dart';
 
@@ -28,5 +29,28 @@ class _HouseLeaderboardState extends State<HouseDashboardScreen> {
 }
 
 Widget _updateHouseScreen(BuildContext context, HouseViewModel model) {
-  return const CircularProgressIndicator();
+  switch (model.apiResponse.status) {
+    case Status.loading:
+    case Status.initial:
+      return const CircularProgressIndicator();
+    case Status.error:
+      return ErrorWidget(model.apiResponse.data);
+    case Status.loaded:
+      return GridView.builder(
+        gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+            maxCrossAxisExtent: 200,
+            childAspectRatio: 3 / 2,
+            crossAxisSpacing: 20,
+            mainAxisSpacing: 20),
+        itemCount: model.houses.length,
+        itemBuilder: (_, index) {
+          return Container(
+            alignment: Alignment.center,
+            child: Text(model.houses[index].houseName!),
+            decoration: BoxDecoration(
+                color: Colors.amber, borderRadius: BorderRadius.circular(15)),
+          );
+        },
+      );
+  }
 }
