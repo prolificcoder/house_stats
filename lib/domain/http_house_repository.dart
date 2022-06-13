@@ -23,6 +23,7 @@ class HttpHouseRepository implements HouseRepository {
       houses = List<House>.from(
           responseJson.map((tagJson) => House.fromMap(tagJson)));
     } on SocketException {
+      // ignore: prefer_single_quotes
       throw Exception("No network");
     }
     return houses;
