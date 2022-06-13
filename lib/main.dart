@@ -15,8 +15,7 @@ class HouseStatsApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const HouseDashboardScreen(
-          title: 'Cascade conservatory houses leaderboard'),
+      home: const HouseDashboardScreen(title: 'Houses leaderboard'),
     );
   }
 }

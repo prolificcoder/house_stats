@@ -35,21 +35,36 @@ Widget _updateHouseScreen(BuildContext context, HouseViewModel model) {
     case Status.error:
       return ErrorWidget(model.asyncDataStatus.data);
     case Status.loaded:
-      return GridView.builder(
-        gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-            maxCrossAxisExtent: 200,
-            childAspectRatio: 3 / 2,
-            crossAxisSpacing: 20,
-            mainAxisSpacing: 20),
-        itemCount: model.houses.length,
-        itemBuilder: (_, index) {
-          return Container(
-            alignment: Alignment.center,
-            child: Text(model.houses[index].houseName!),
-            decoration: BoxDecoration(
-                color: Colors.amber, borderRadius: BorderRadius.circular(15)),
-          );
-        },
+      return Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: GridView.builder(
+          gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+              maxCrossAxisExtent: 200,
+              childAspectRatio: 3 / 2,
+              crossAxisSpacing: 20,
+              mainAxisSpacing: 20),
+          itemCount: model.houses.length,
+          itemBuilder: (_, index) {
+            return Container(
+              child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      model.houses[index].houseName!,
+                      style: Theme.of(context).textTheme.headlineMedium,
+                    ),
+                    Text(
+                      model.houses[index].score.toString(),
+                      style: Theme.of(context).textTheme.headlineSmall,
+                    ),
+                  ]),
+              decoration: BoxDecoration(
+                color: Colors.cyan,
+                borderRadius: BorderRadius.circular(15),
+              ),
+            );
+          },
+        ),
       );
   }
 }
