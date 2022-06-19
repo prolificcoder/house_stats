@@ -7,11 +7,6 @@ class HouseViewModel extends ChangeNotifier {
   late AsyncData asyncDataStatus;
   List<House> houses = List.empty();
 
-  init() {
-    fetchAllHouses();
-    sortHousesByPosition(houses);
-  }
-
   Future<void> fetchAllHouses() async {
     asyncDataStatus = AsyncData.loading('Fetching houses');
     final repository = HouseRepository();
@@ -21,22 +16,7 @@ class HouseViewModel extends ChangeNotifier {
     } catch (e) {
       asyncDataStatus = AsyncData.error(e.toString());
     }
+    houses = House().sortHousesByPosition(houses);
     notifyListeners();
-  }
-
-  List<House> sortHousesByPosition(List<House> houses) {
-    for (var i = 0; i < houses.length; i++) {
-      for (var j = 0; j < houses.length; j++) {
-        if (houses[i].score! < houses[j].score!) {
-          var temp = houses[i];
-          houses[i] = houses[j];
-          houses[j] = temp;
-        }
-      }
-    }
-    for (var i = 0; i < houses.length; i++) {
-      houses[i].position = i + 1;
-    }
-    return houses;
   }
 }

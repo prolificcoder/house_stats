@@ -45,4 +45,20 @@ class House {
 
   @override
   int get hashCode => houseName.hashCode ^ score.hashCode;
+
+  List<House> sortHousesByPosition(List<House> houses) {
+    for (var i = 0; i < houses.length; i++) {
+      for (var j = 0; j < houses.length; j++) {
+        if (houses[i].score! < houses[j].score!) {
+          var temp = houses[i];
+          houses[i] = houses[j];
+          houses[j] = temp;
+        }
+      }
+    }
+    for (var i = 0; i < houses.length; i++) {
+      houses[i].position = i + 1;
+    }
+    return houses;
+  }
 }
