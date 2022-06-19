@@ -57,7 +57,7 @@ class House {
       }
     }
     for (var i = 0; i < houses.length; i++) {
-      houses[i].position = i + 1;
+      houses[i].position = houses.length - i;
     }
     return houses;
   }
