@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:house_stats/main.dart';
+import 'package:house_stats/screens/house_details_screen.dart';
 import 'package:house_stats/utils/async_data.dart';
 import 'package:house_stats/data/house_view_model.dart';
 import 'package:provider/provider.dart';
@@ -46,22 +48,32 @@ Widget _updateHouseScreen(BuildContext context, HouseViewModel model) {
           itemCount: model.houses.length,
           itemBuilder: (_, index) {
             return Container(
-              child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      model.houses[index].houseName!,
-                      style: Theme.of(context).textTheme.headlineMedium,
-                    ),
-                    Text(
-                      model.houses[index].score.toString(),
-                      style: Theme.of(context).textTheme.headlineSmall,
-                    ),
-                    Text(
-                      'place: ' + model.houses[index].position.toString(),
-                      style: Theme.of(context).textTheme.bodyText1,
-                    ),
-                  ]),
+              child: GestureDetector(
+                onTap: (() => Navigator.pushNamed(
+                      context,
+                      HouseDetailsScreen.routeName,
+                      arguments: ScreenArguments(
+                        model.houses[index].houseName!,
+                        model.houses[index].position ?? 0,
+                      ),
+                    )),
+                child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        model.houses[index].houseName!,
+                        style: Theme.of(context).textTheme.headlineMedium,
+                      ),
+                      Text(
+                        model.houses[index].score.toString(),
+                        style: Theme.of(context).textTheme.headlineSmall,
+                      ),
+                      Text(
+                        'place: ' + model.houses[index].position.toString(),
+                        style: Theme.of(context).textTheme.bodyText1,
+                      ),
+                    ]),
+              ),
               decoration: BoxDecoration(
                 color: Colors.cyan,
                 borderRadius: BorderRadius.circular(15),
