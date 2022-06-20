@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:house_stats/utils/async_data.dart';
 import 'package:house_stats/data/house_view_model.dart';
+import 'package:house_stats/widgets/house_place_widget.dart';
+import 'package:house_stats/widgets/house_score_widget.dart';
 import 'package:provider/provider.dart';
 
 class HouseDashboardScreen extends StatefulWidget {
@@ -11,7 +13,6 @@ class HouseDashboardScreen extends StatefulWidget {
 }
 
 class _HouseLeaderboardState extends State<HouseDashboardScreen> {
-  int _clickedIndex = -1;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -43,31 +44,19 @@ class _HouseLeaderboardState extends State<HouseDashboardScreen> {
                           child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                InkWell(
-                                  onTap: (() =>
-                                      setState(() => _clickedIndex = index)),
-                                  child: Text(
-                                    model.houses[index].houseName!,
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .headlineMedium,
-                                  ),
-                                ),
                                 Text(
-                                  model.houses[index].score.toString(),
-                                  style:
-                                      Theme.of(context).textTheme.headlineSmall,
+                                  model.houses[index].houseName!,
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .headlineMedium,
                                 ),
-                                Text(
-                                  'place: ' +
-                                      model.houses[index].position.toString(),
-                                  style: Theme.of(context).textTheme.bodyText1,
-                                ),
+                                HouseScoreWidget(
+                                    score: model.houses[index].score!),
+                                HousePlaceWidget(
+                                    place: model.houses[index].position!),
                               ]),
                           decoration: BoxDecoration(
-                            color: _clickedIndex == index
-                                ? Colors.red
-                                : Colors.cyan,
+                            color: Colors.cyan,
                             borderRadius: BorderRadius.circular(15),
                           ),
                         );
