@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:house_stats/utils/async_data.dart';
 import 'package:house_stats/data/house_view_model.dart';
-import 'package:house_stats/widgets/house_place_widget.dart';
-import 'package:house_stats/widgets/house_score_widget.dart';
+import 'package:house_stats/widgets/house_card_widget.dart';
 import 'package:provider/provider.dart';
 
 class HouseDashboardScreen extends StatefulWidget {
@@ -40,26 +39,7 @@ class _HouseLeaderboardState extends State<HouseDashboardScreen> {
                               mainAxisSpacing: 20),
                       itemCount: model.houses.length,
                       itemBuilder: (_, index) {
-                        return Container(
-                          child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Text(
-                                  model.houses[index].houseName!,
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .headlineMedium,
-                                ),
-                                HouseScoreWidget(
-                                    score: model.houses[index].score!),
-                                HousePlaceWidget(
-                                    place: model.houses[index].position!),
-                              ]),
-                          decoration: BoxDecoration(
-                            color: Colors.cyan,
-                            borderRadius: BorderRadius.circular(15),
-                          ),
-                        );
+                        return HouseCardWidget(house: model.houses[index]);
                       },
                     ),
                   );
