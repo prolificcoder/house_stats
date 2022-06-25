@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:house_stats/main.dart';
+import 'package:house_stats/screens/house_details_screen.dart';
 import 'package:house_stats/utils/async_data.dart';
 import 'package:house_stats/data/house_view_model.dart';
 import 'package:house_stats/widgets/house_card_widget.dart';
