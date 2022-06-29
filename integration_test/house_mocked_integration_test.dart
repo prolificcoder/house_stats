@@ -1,9 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:house_stats/data/house_model.dart';
-import 'package:house_stats/domain/house_repository.dart';
 import 'package:house_stats/main.dart';
-import 'package:mockito/annotations.dart';
-import 'package:mockito/mockito.dart';
 
 main() {
   testWidgets('Integration testing house dashboard', (tester) async {
