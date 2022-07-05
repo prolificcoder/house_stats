@@ -21,14 +21,16 @@ class HouseCardWidget extends StatelessWidget {
                 house.position ?? 0,
               ),
             )),
-        child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-          Text(
-            house.houseName!,
-            style: Theme.of(context).textTheme.headlineMedium,
-          ),
-          HouseScoreWidget(score: house.score!),
-          HousePlaceWidget(place: house.position!),
-        ]),
+        child: SingleChildScrollView(
+          child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+            Text(
+              house.houseName!,
+              style: Theme.of(context).textTheme.headlineMedium,
+            ),
+            HouseScoreWidget(score: house.score!),
+            HousePlaceWidget(place: house.position!),
+          ]),
+        ),
       ),
       decoration: BoxDecoration(
         color: Colors.cyan,
