@@ -1,0 +1,16 @@
+name: Running CI for house app
+on:
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  run-unit-tests:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: subosito/flutter-action@v2
+      - name: Get flutter packages
+        run: flutter pub get
+      - name: Run all tests
+        run: flutter test
