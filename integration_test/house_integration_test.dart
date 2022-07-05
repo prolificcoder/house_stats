@@ -10,7 +10,6 @@ main() {
 
     expect(find.text('Adagio'), findsOneWidget);
     await tester.tap(find.text('Adagio'));
-    await tester.tap(find.text('250'));
     await tester.pumpAndSettle();
 
     expect(find.text('House details'), findsOneWidget);
