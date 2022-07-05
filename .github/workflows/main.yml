@@ -23,7 +23,7 @@ jobs:
         run: flutter pub get
       - name: Build iOS app
         run: flutter build ios --debug --no-codesign
-      - uses: futureware-tech/simulator-acton@v1
+      - uses: futureware-tech/simulator-action@v1
         with:
           mode: "iPhone 12"
       - run: flutter test integration_test/house_integration_test.dart
