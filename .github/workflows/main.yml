@@ -12,4 +12,4 @@ jobs:
       - name: Flutter actions
         uses: subosito/flutter-action@v2
       - name: Get flutter packages
-        run: fluter pub get
+        run: flutter pub get
