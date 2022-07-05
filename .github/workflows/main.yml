@@ -1,0 +1,11 @@
+name: Running CI for house app
+on:
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  run-unit-tests:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkoutv3
