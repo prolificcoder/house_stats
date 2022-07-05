@@ -2,8 +2,7 @@ name: Run tests for house project
 on:
   pull_request:
     branches:
-      - master
-
+      - main
 jobs:
   run_unit_tests:
     runs-on: macos-latest
