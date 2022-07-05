@@ -1,4 +1,3 @@
-name: Run tests for house project
 on:
   pull_request:
     branches:
