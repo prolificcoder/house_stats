@@ -1,5 +1,7 @@
 # house_stats
 
+Github repo for the free course on flutter testing: https://testautomationu.applitools.com/testing-flutter-apps/
+
 Cross device app for visualizing and entering live house scores. 
 
 Apps should be available on Android, iOS, Web and macos/windows -> Should be the biggest draw. 
