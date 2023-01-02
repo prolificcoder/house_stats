@@ -1,9 +1,12 @@
-name: Run tests for house project
-"on": pull_request
+name: Complete CI setup for Flutter app
+on:
+  pull_request:
+    branches:
+      - master
 
 jobs:
-  run_unit_tests:
+  run-static-checks:
     runs-on: macos-latest
     steps:
-      - name: Checkout code
+      - name: checkout code
         uses: actions/checkout@v3

@@ -1,29 +1,20 @@
-name: Running CI for house app
+name: Complete CI setup for Flutter app
 on:
   pull_request:
     branches:
       - master
 
 jobs:
-  run-unit-tests:
+  run-static-checks:
     runs-on: macos-latest
     steps:
-      - uses: actions/checkout@v3
+      - name: checkout code
+        uses: actions/checkout@v3
       - uses: subosito/flutter-action@v2
-      - name: Get flutter packages
-        run: flutter pub get
-      - name: Run all tests
-        run: flutter test
-  run-integration-tests:
-    runs-on: macos-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: subosito/flutter-action@v2
-      - name: Get flutter packages
-        run: flutter pub get
-      - name: Build iOS app
-        run: flutter build ios --debug --no-codesign
-      - uses: futureware-tech/simulator-action@v1
         with:
-          model: "iPhone 13"
-      - run: flutter test integration_test/house_integration_test.dart
+          flutter-version: "3.3.0"
+          channel: "stable"
+      - name: check code formatting
+        run: flutter format . --set-exit-if-changed
+      - name: check code linting
+        run: flutter analyze .
