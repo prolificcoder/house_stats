@@ -10,3 +10,8 @@ jobs:
     steps:
       - name: checkout code
         uses: actions/checkout@v3
+      - uses: subosito/flutter-action@v2
+      - name: check code formatting
+        uses: flutter format . --set-exit-if-changed
+      - name: check code linting
+        uses: flutter analyze .
