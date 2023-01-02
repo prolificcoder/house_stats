@@ -27,7 +27,9 @@ jobs:
         with:
           flutter-version: "3.3.0"
           channel: "stable"
-      - name: Run tests with coverage
-        run: flutter tests --coverage
+      - name: Run test with coverage
+        run: flutter test --coverage
       - name: Enforce code coverage
         uses: VeryGoodOpenSource/very_good_coverage@v2
+        with:
+          min_coverage: 60
