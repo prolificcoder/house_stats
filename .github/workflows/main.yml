@@ -11,6 +11,9 @@ jobs:
       - name: checkout code
         uses: actions/checkout@v3
       - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: "3.3.0"
+          channel: "stable"
       - name: check code formatting
         uses: flutter format . --set-exit-if-changed
       - name: check code linting
