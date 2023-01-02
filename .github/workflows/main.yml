@@ -33,3 +33,47 @@ jobs:
         uses: VeryGoodOpenSource/very_good_coverage@v2
         with:
           min_coverage: 28
+  build-ios-mac-app:
+    runs-on: macos-latest
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v3
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: "3.3.0"
+          channel: "stable"
+      - name: Build the iOS app
+        run: flutter build ios --debug --no-codesign
+  build-ios-mobile-app:
+    runs-on: macos-latest
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v3
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: "3.3.0"
+          channel: "stable"
+      - name: Build the iOS app
+        run: flutter build ipa --debug --no-codesign
+  build-android-app:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v3
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: "3.3.0"
+          channel: "stable"
+      - name: Build the android app
+        run: flutter build apk --debug
+  build-web-app:
+    runs-on: windows-latest
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v3
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: "3.3.0"
+          channel: "stable"
+      - name: Build the android app
+        run: flutter build web
