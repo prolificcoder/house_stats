@@ -18,3 +18,16 @@ jobs:
         run: flutter format . --set-exit-if-changed
       - name: check code linting
         run: flutter analyze .
+  run-unit-tests:
+    runs-on: macos-latest
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v3
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: "3.3.0"
+          channel: "stable"
+      - name: Run tests with coverage
+        run: flutter tests --coverage
+      - name: Enforce code coverage
+        uses: VeryGoodOpenSource/very_good_coverage@v2
