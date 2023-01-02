@@ -6,7 +6,7 @@ on:
 
 jobs:
   run-static-checks:
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
     steps:
       - name: checkout code
         uses: actions/checkout@v3
@@ -19,7 +19,7 @@ jobs:
       - name: check code linting
         run: flutter analyze .
   run-unit-tests:
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
     steps:
       - name: checkout code
         uses: actions/checkout@v3
