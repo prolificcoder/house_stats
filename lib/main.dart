@@ -25,6 +25,7 @@ class HouseStatsApp extends StatelessWidget {
                   title: args.title, position: args.position);
             });
           }
+          return null;
         });
   }
 }
