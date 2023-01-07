@@ -129,6 +129,6 @@ jobs:
       - name: Run tests on Firebase Test Lab
         uses: asadmansr/Firebase-Test-Lab-Action@v1.0
         with:
-          arg-spec: "tests.yml:ftl-config"
+          arg-spec: "ftl_config.yml:ftl-config"
         env:
           SERVICE_ACCOUNT: ${{ secrets.FIREBASE_HOUSE_STATS_SERVICE_ACCOUNT }}
