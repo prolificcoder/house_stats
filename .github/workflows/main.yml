@@ -77,3 +77,18 @@ jobs:
           channel: "stable"
       - name: Build the android app
         run: flutter build web
+  run-ios-integration-tests:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: "3.3.0"
+          channel: "stable"
+      - uses: futureware-tech/simulator-action@v1
+        with:
+          model: "iPhone 13"
+          erase_before_boot: true
+          shutdown_after_job: true
+      - name: Run ios integration tests on mac
+        run: flutter test integration_test/house_mocked_integration_test.dart --dart-define=isTestApp=true
