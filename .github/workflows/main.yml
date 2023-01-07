@@ -87,7 +87,7 @@ jobs:
           channel: "stable"
       - uses: futureware-tech/simulator-action@v1
         with:
-          model: "iPhone 13"
+          model: "iPhone 14"
           erase_before_boot: true
           shutdown_after_job: true
       - name: Run ios integration tests on mac
