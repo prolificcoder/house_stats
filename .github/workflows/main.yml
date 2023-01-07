@@ -115,11 +115,11 @@ jobs:
       - name: Archive the test debug build
         uses: actions/upload-artifact@v3
         with:
-          name: app-debug-test.apk
-          path: build/app/outputs/apk/androidTest/debug/app-debug-test.apk
-      # - name: Run tests on Firebase Test Lab
-      #   uses: asadmansr/Firebase-Test-Lab-Action@v1.0
-      #   with:
-      #     arg-spec: "tests.yml:android-pixel-4"
-      #   env:
-      #     SERVICE_ACCOUNT: ${{ secrets.SERVICE_ACCOUNT }}
+          name: app-debug-androidTest.apk
+          path: build/app/outputs/apk/androidTest/debug/aapp-debug-androidTest.apk
+      - name: Run tests on Firebase Test Lab
+        uses: asadmansr/Firebase-Test-Lab-Action@v1.0
+        with:
+          arg-spec: "tests.yml`1  `:android-pixel-4"
+        env:
+          SERVICE_ACCOUNT: ${{ secrets.FIREBASE_HOUSE_STATS_SERVICE_ACCOUNT }}
