@@ -92,3 +92,34 @@ jobs:
           shutdown_after_job: true
       - name: Run ios integration tests on mac
         run: flutter test integration_test/house_mocked_integration_test.dart --dart-define=isTestApp=true
+  run-android-integration-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: "3.3.0"
+          channel: "stable"
+      - name: Generate android binaries
+        run: |
+          pushd android
+          flutter build apk --debug
+          ./gradlew app:assembleAndroidTest
+          ./gradlew app:assembleDebug -Ptarget=integration_test/house_integration_test.dart
+          popd
+      - name: Archive the debug build
+        uses: actions/upload-artifact@v3
+        with:
+          name: app-debug.apk
+          path: build/app/outputs/apk/debug/app-debug.apk
+      - name: Archive the test debug build
+        uses: actions/upload-artifact@v3
+        with:
+          name: app-debug-test.apk
+          path: build/app/outputs/apk/androidTest/debug/app-debug-test.apk
+      # - name: Run tests on Firebase Test Lab
+      #   uses: asadmansr/Firebase-Test-Lab-Action@v1.0
+      #   with:
+      #     arg-spec: "tests.yml:android-pixel-4"
+      #   env:
+      #     SERVICE_ACCOUNT: ${{ secrets.SERVICE_ACCOUNT }}
