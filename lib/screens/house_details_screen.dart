@@ -21,7 +21,7 @@ class HouseDetailsScreen extends StatelessWidget {
             children: [
               Text(
                 'House details',
-                style: Theme.of(context).textTheme.headline3,
+                style: Theme.of(context).textTheme.displaySmall,
               ),
               Text(
                 'House name: $title',
