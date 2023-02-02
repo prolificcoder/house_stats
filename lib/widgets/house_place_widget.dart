@@ -10,12 +10,12 @@ class HousePlaceWidget extends StatelessWidget {
       return Text(
         'place: $place',
         style:
-            Theme.of(context).textTheme.bodyText1!.copyWith(color: Colors.red),
+            Theme.of(context).textTheme.bodyLarge!.copyWith(color: Colors.red),
       );
     } else {
       return Text(
         'place: $place',
-        style: Theme.of(context).textTheme.bodyText1,
+        style: Theme.of(context).textTheme.bodyLarge,
       );
     }
   }
