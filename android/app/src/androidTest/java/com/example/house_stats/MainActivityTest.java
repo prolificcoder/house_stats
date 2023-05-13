@@ -1,12 +1,12 @@
 package com.example.house_stats;
 
-import androidx.test.rule.ActivityTestRule;
-import dev.flutter.plugins.integration_test.FlutterTestRunner;
 import org.junit.Rule;
 import org.junit.runner.RunWith;
+import pl.leancode.patrol.PatrolTestRule;
+import pl.leancode.patrol.PatrolTestRunner;
 
-@RunWith(FlutterTestRunner.class)
+@RunWith(PatrolTestRunner.class)
 public class MainActivityTest {
-  @Rule
-  public PatrolTestRule<MainActivity> rule = new PatrolTestRule<>(MainActivity.class, true, false);
+    @Rule
+    public PatrolTestRule<MainActivity> rule = new PatrolTestRule<>(MainActivity.class);
 }
