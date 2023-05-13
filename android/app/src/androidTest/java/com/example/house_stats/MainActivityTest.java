@@ -8,5 +8,5 @@ import org.junit.runner.RunWith;
 @RunWith(FlutterTestRunner.class)
 public class MainActivityTest {
   @Rule
-  public ActivityTestRule<MainActivity> rule = new ActivityTestRule<>(MainActivity.class, true, false);
+  public PatrolTestRule<MainActivity> rule = new PatrolTestRule<>(MainActivity.class, true, false);
 }

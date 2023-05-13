@@ -1,2 +1,3 @@
 # This is a generated file; do not edit or check into version control.
-integration_test=/opt/homebrew/Caskroom/flutter/2.5.3/flutter/packages/integration_test/
+integration_test=/Users/smalugu/fvm/versions/3.7.9/packages/integration_test/
+patrol=/Users/smalugu/.pub-cache/hosted/pub.dev/patrol-1.1.2/
