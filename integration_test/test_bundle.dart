@@ -10,7 +10,6 @@ import 'package:test_api/src/backend/invoker.dart';
 
 // START: GENERATED CODE
 import 'house_mocked_integration_test.dart' as house_mocked_integration_test;
-import 'house_mocked_integration2_test.dart' as house_mocked_integration2_test;
 // END: GENERATED CODE
 
 Future<void> main() async {
@@ -51,7 +50,6 @@ Future<void> main() async {
 
   // START: GENERATED CODE
   group('house_mocked_integration_test', house_mocked_integration_test.main);
-  group('house_mocked_integration2_test', house_mocked_integration2_test.main);
   // END: GENERATED CODE
 
   final dartTestGroup = await testExplorationCompleter.future;
