@@ -43,13 +43,13 @@ android {
 
     defaultConfig {
         applicationId "com.malugu.housestats"
-        minSdkVersion 19 
+        minSdkVersion 21 
         targetSdkVersion flutter.targetSdkVersion
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
-    }
+}
 
     buildTypes {
         release {
