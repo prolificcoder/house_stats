@@ -15,7 +15,7 @@ jobs:
           flutter-version: "3.13.2"
           channel: "stable"
       - name: check code formatting
-        run: flutter format . --set-exit-if-changed
+        run: dart format . --set-exit-if-changed
       - name: check code linting
         run: flutter analyze .
   run-unit-tests:
